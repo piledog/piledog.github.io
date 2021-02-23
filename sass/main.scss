@@ -17,7 +17,7 @@ body {
     >header {
         display: flex;
         align-items: center;
-        @include sticky();
+        position: relative;
         top: 0; left: 0;
         
         &::before {
