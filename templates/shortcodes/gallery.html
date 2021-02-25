@@ -6,11 +6,12 @@
 <h1>{{album | title}}</h1>
 <div class="gallery">
   {%for r in data.records%}
-  {%set raw = "gallery/" ~ album ~ "/" ~ r[0]%}
+  {%set raw = album ~ "/" ~ r[0]%}
   <figure>
     <figcaption>{{r[1]}}</figcaption>
+    <!-- This only works in build mode -->
     <a href="{{raw}}">
-      <img src="{{resize_image(path='../static/' ~ raw, width=480, op='fit_width')}}"/>
+      <img src="{{resize_image(path='../static/gallery/' ~ raw, width=480, op='fit_width')}}"/>
     </a>
   </figure>
   {%endfor%}
@@ -21,8 +22,8 @@
   .gallery {
     display: grid;
     grid-template-rows: masonry;
-    grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
-    gap: 1rem;
+    grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));
+    gap: 1em;
   }
   img {
     width: 100%;
@@ -31,14 +32,14 @@
   figure {
     position: relative;
     margin: 0;
-    border-radius: .5rem;
+    border-radius: .5em;
     overflow: hidden;
   }
 
   figcaption {
     backdrop-filter: blur(10px);
-    /*color: rgb(var(--label-fg));
-    background-color: rgb(var(--));*/
+    /*color: rgb(var(--label-fg));*/
+    background-color: rgba(0, 0, 0, .3);
     
     width: 100%;
     position: absolute;
