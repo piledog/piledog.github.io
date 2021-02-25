@@ -75,7 +75,8 @@ body {
       padding: 1em;
       overflow: hidden;
     }
-    >header {
+    >header>div {
+      width: 100%;
       flex-direction: column;
     }
 
